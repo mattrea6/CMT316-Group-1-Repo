@@ -1,17 +1,15 @@
 import preporeseing
 import train_model
-import os, shutil
+import sys, os, shutil
 import random
-import pandas
-import tensorflow as tf
-import keras
-from keras import layers, models
-from keras.preprocessing.image import ImageDataGenerator
-from keras.applications.resnet import ResNet50
+
+# main file to run all necessary routines
 
 image_width = 256
 image_height = 256
 
-#preporeseing.preprocess()
+# this will split the data into train, test and val sets
+preporeseing.preprocess()
 
-model = train_model(image_width, image_height)
+# this trains and returns the model
+model = train_model.train_model(image_width, image_height)

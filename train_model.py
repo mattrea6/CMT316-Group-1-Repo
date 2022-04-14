@@ -12,7 +12,9 @@ width = 256
 height = 256
 
 #preporeseing.preprocess()
+# function to train and return the model
 def train_model(width, height):
+    # get image generator objects from preprocessing
     train_generator, test_generator, validation_generator = preporeseing.make_generators(width, height)
 
     print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
