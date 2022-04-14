@@ -82,7 +82,7 @@ def preprocess():
             dst = os.path.join(validation_dir, name)
             shutil.move(src, dst)
 
-def make_generators():
+def make_generators(width, height):
     print("Creating data generators")
     #Training set images for data Augmentation
     train_data = ImageDataGenerator(rescale=1./255,
@@ -98,10 +98,10 @@ def make_generators():
     validation_data = ImageDataGenerator(rescale=1./255)
 
     #Resize the image to 300*300
-    train_generator = train_data.flow_from_directory(train_dir,target_size=(300,300),batch_size= 30)
+    train_generator = train_data.flow_from_directory(train_dir,target_size=(width, height),batch_size= 30)
 
-    test_generator = test_data.flow_from_directory(test_dir,target_size=(300,300),batch_size = 30)
+    test_generator = test_data.flow_from_directory(test_dir,target_size=(width, height),batch_size = 30)
 
-    validation_generator = validation_data.flow_from_directory(validation_dir,target_size=(256,256), batch_size=20, class_mode='categorical')
+    validation_generator = validation_data.flow_from_directory(validation_dir,target_size=(width, height), batch_size=20, class_mode='categorical')
 
     return train_generator, test_generator, validation_generator
