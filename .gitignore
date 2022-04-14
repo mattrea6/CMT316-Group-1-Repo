@@ -2,3 +2,6 @@ data/CUB_200_2011/images/*/*.png
 *.png
 data/CUB_200_2011/images/*/*.jpg
 *.jpg
+
+.ipynb_checkpoints
+__pycache__
